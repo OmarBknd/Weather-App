@@ -1,7 +1,12 @@
+import updateDOM from "./dom"
+
 let temp = document.createElement("p")
-const container = document.querySelector('#container')
+
 const dialogConfirmBtn = document.querySelector('#dialogConfirmBtn')
 const locationValue = document.querySelector('#location')
+
+
+
 
 async function WeatherApi(weatherLocation){
 
@@ -18,39 +23,30 @@ async function WeatherApi(weatherLocation){
         
         console.log('Weather Data:',weatherData);
         console.log('Locationnnn:', locationData);
-        temp = weatherData.current.temp_c;
+       // temp = weatherData.current.temp_c;
+        //container.append(temp);
+
+       // weatherLocation = weatherData.location.name;
+        //container.append(weatherLocation)
+        
+        
     
-        weatherLocation = weatherData.location.name;
+        updateDOM(weatherData)
       console.log(temp,weatherLocation);
-    }catch(err){console.log('Error',err);}
+    }catch(err){console.log('Error: ',err);}
 }
 //container.appendChild(temp)
 
 
 dialogConfirmBtn.addEventListener('click',async (e)=>{
+    
     e.preventDefault()
     const weatherLocation = locationValue.value
-       
+            
     await WeatherApi(weatherLocation)
     
      })
 
-//async function SearchWeatherApi(location){
-//
-//    try{
-//        
-//        const locationapiUrl = 'http://api.weatherapi.com/v1/search.json?key=e6de3e17d80243a2916234914243105&q=';
-//        const locationResponse = await fetch(locationapiUrl+location)
-//        const SearchweatherData = await response.json()
-//       
-//        
-//           console.log('Search Data',SearchweatherData);
-//    }catch(err){console.log('Error',err);
-//
-//    }
-//
-//   
-//        
-//}
+export default WeatherApi
 
 
