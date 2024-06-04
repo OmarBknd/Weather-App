@@ -1,4 +1,5 @@
-import updateDOM from "./dom"
+import updateDOM from "./dom";
+import './style.css';
 
 let temp = document.createElement("p")
 
@@ -13,16 +14,21 @@ async function WeatherApi(weatherLocation){
     try{
         const locationapiUrl = 'http://api.weatherapi.com/v1/search.json?key=e6de3e17d80243a2916234914243105&q=';
         const weatherApiUrl = 'http://api.weatherapi.com/v1/current.json?key=e6de3e17d80243a2916234914243105&q=';
+        const forcastApiUrl = 'https://api.weatherapi.com/v1/forecast.json?key=e6de3e17d80243a2916234914243105&q=';
+        let forcastDays = '&days=3';
         
         
-        const waetherResponse = await fetch(weatherApiUrl+weatherLocation)
-        const locationResponse = await fetch(locationapiUrl+weatherLocation)
+        const waetherResponse = await fetch(weatherApiUrl+weatherLocation);
+        const locationResponse = await fetch(locationapiUrl+weatherLocation);
+        const forcastResponse = await fetch(forcastApiUrl+weatherLocation+forcastDays);
 
         const weatherData = await waetherResponse.json()
         const locationData = await locationResponse.json()
+        const forcastData = await forcastResponse.json()
         
-        console.log('Weather Data:',weatherData);
-        console.log('Locationnnn:', locationData);
+        console.log('Weather Data: ',weatherData);
+        console.log('Location Data: ', locationData);
+        console.log('forcast Data: ', forcastData);
        // temp = weatherData.current.temp_c;
         //container.append(temp);
 
@@ -32,7 +38,7 @@ async function WeatherApi(weatherLocation){
         
     
         updateDOM(weatherData)
-      console.log(temp,weatherLocation);
+      //console.log(temp,weatherLocation);
     }catch(err){console.log('Error: ',err);}
 }
 //container.appendChild(temp)

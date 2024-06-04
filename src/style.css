@@ -1,0 +1,23 @@
+
+
+#dialogConfirmBtn{
+    font-size:large;
+}
+
+.icon-condition{
+   display: grid;
+}
+.temp-degree{
+    font-size: 2rem;
+
+}
+.current-temp-card{
+ display: flex;
+ align-items: center;
+    gap: 20px;
+}
+
+.current-location-card{
+    display: flex;
+    justify-content: center;
+}
