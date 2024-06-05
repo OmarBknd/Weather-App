@@ -21,3 +21,19 @@
     display: flex;
     justify-content: center;
 }
+.day-forecast-card{
+    display: flex;
+    justify-content: space-between;
+}
+.day-forecast-list-card {
+    display: none;
+
+}
+.day-forecast-card-active{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
