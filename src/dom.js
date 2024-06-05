@@ -51,4 +51,28 @@ function updateDOM(weatherData) {
     
 }
 
+export function updateForecastDOM(forecastData){
+    const days = forecastData.forecast.forecastday
+    
+    days.forEach(day => {
+        const dayDate= document.createElement('div')
+        container.appendChild(dayDate);
+        dayDate.textContent = day.date
+        
+        const hoursOfTheDay = day.hour
+        hoursOfTheDay.forEach(hour =>{
+            const hourInDay =  document.createElement('div');
+            container.appendChild(hourInDay);
+            hourInDay.textContent = `${hour.temp_c}°C `
+        })
+    });
+    
+}
 export default updateDOM
+
+//for(let i=0; i<forecastData.forecast.forecastday.length;i++){ 
+//    const days = document.createElement('div')
+//     days.textContent = ` ${forecastData.forecast.forecastday[i].date}` 
+//      
+//    container.appendChild(days)
+//    }
