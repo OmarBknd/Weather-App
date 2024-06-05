@@ -1,11 +1,16 @@
-//import WeatherApi from "./index.js";
 
+import {format} from 'date-fns'
 
 const container = document.querySelector('#container')
+
+
+let Celsius = true
 function updateDOM(weatherData) {
    
     container.innerHTML = '';
 
+   
+   
    
 
     const currentLocationCard = document.createElement('div');
@@ -39,20 +44,41 @@ function updateDOM(weatherData) {
 
     const condElement = document.createElement('span');
     condElement.textContent = ` ${weatherData.current.condition.text}`;
-   // currentTempCard.appendChild(condElement);
+   
     imgElementContainer.appendChild(condElement)
     currentTempCard.appendChild(imgElementContainer);
 
+   
+    
+
     const tempElement = document.createElement('div');
     tempElement.classList.add('temp-degree')
+    
+    
+
+   
     tempElement.textContent = `${weatherData.current.temp_c}°C`;
+
+   // const degreeConverter = document.createElement('button') 
+   // degreeConverter.textContent ='convert'
+   // degreeConverter.addEventListener('click',()=>{
+   //     if(Celsius){
+   //     tempElement.textContent = `${weatherData.current.temp_c}°C`;
+   //      }
+   //      else{
+   //         tempElement.textContent = `${weatherData.current.temp_f}°F`;
+   //      }
+   //      Celsius = !Celsius
+   // })
+   // currentTempCard.appendChild(degreeConverter)
     currentTempCard.appendChild(tempElement);
 
     
 }
 
 
-export function updateForecastDOM(forecastData){
+
+ function updateForecastDOM(forecastData){
     const days = forecastData.forecast.forecastday
     const dayForecastContainer = document.createElement('div');
     dayForecastContainer.classList.add('day-forecast-card')
@@ -63,22 +89,27 @@ export function updateForecastDOM(forecastData){
        
         dayForecastContainer.appendChild(dayForecast)
         container.appendChild(dayForecastContainer);
-        dayForecast.textContent = day.date
+        dayForecast.textContent = format(new Date(day.date),'EEEE, MMMM d, yyyy')
         
         const hoursOfTheDay = day.hour
         hoursOfTheDay.forEach(hour =>{
-            const hourInDay =  document.createElement('li');
-            hourInDay.classList.add('day-forecast-list-card')
-            const hourInDayImg = document.createElement('img');
 
+            const forecastHourInDay =  document.createElement('li');
+            forecastHourInDay.classList.add('day-forecast-list-card')
             
-            hourInDay.textContent = `${hour.temp_c}°C `
-            hourInDayImg.src =hour.condition.icon
-            hourInDay.appendChild(hourInDayImg);
-            dayForecast.appendChild(hourInDay);
+            const currentHourForecastImg = document.createElement('img');
+            const currentHourForecast = document.createElement('div')
+            
+            
+            currentHourForecast.textContent = `${format(new Date(hour.time),'EE,h a')} ${hour.temp_c}°C `
+            currentHourForecastImg.src =hour.condition.icon
+           
+            forecastHourInDay.appendChild(currentHourForecastImg);
+            forecastHourInDay.appendChild(currentHourForecast)
+            dayForecast.appendChild(forecastHourInDay);
            
             dayForecast.addEventListener('click',()=>{
-                hourInDay.classList.toggle('day-forecast-card-active')
+                forecastHourInDay.classList.toggle('day-forecast-card-active')
                
     
             })
@@ -87,11 +118,5 @@ export function updateForecastDOM(forecastData){
     });
     
 }
-export default updateDOM
+export  {updateDOM,updateForecastDOM}
 
-//for(let i=0; i<forecastData.forecast.forecastday.length;i++){ 
-//    const days = document.createElement('div')
-//     days.textContent = ` ${forecastData.forecast.forecastday[i].date}` 
-//      
-//    container.appendChild(days)
-//    }

@@ -1,4 +1,4 @@
-import updateDOM,{updateForecastDOM}  from "./dom";
+import {updateDOM,updateForecastDOM}  from "./dom";
 import './style.css';
 
 //let temp = document.createElement("p")
