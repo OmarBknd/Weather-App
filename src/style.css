@@ -41,11 +41,6 @@ body{}
     height: 1rem;
    }
    
-   
-   
-   
-   
-   
 #dialogConfirmBtn:hover{
     fill: aquamarine;
     width: 22px;
@@ -233,6 +228,69 @@ body{}
     font-size: 12px;
     color: #555;
 }
+
+/* Astro Card */
+
+
+.astro-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    perspective: 1000px; 
+}
+
+/* Astronomy Card */
+.astro-card {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.astro-card:hover {
+    transform: rotateY(180deg);
+}
+
+
+.astro-card-front, .astro-card-back {
+    position: absolute;
+    width: 100%;
+    
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.astro-card-front {
+    background-color: #ffffff;
+}
+
+.astro-card-back {
+    background-color: #f8f9fa;
+    transform: rotateY(180deg);
+}
+
+
+.astro-text {
+    display: flex;
+    gap: 10px;
+    font-size: 1.2em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.astro-text img {
+    width: 20px;
+    height: 20px;
+}
+
 
 
 

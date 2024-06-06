@@ -1,5 +1,9 @@
 
-import {format} from 'date-fns'
+import {format} from 'date-fns';
+import sunrise from './assets/svg/sunrise.svg';
+import sunset from './assets/svg/sunset.svg';
+import wind from './assets/svg/wind.svg';
+import humidity from './assets/svg/humidity.svg'
 
 const container = document.querySelector('#container')
 
@@ -73,6 +77,71 @@ container.appendChild(currentTempCard);
     
 }
 
+function updateAstronomyDom(astronomyData,weatherData){
+
+    const sunriseIcon = new Image();
+    const sunsetIcon = new Image();
+    const windIcon = new Image();
+    const humidtyIcon = new Image();
+
+    sunriseIcon.src = sunrise;
+    sunsetIcon.src = sunset;
+    windIcon.src = wind;
+    humidtyIcon.src =humidity;
+
+    const astroContainer = document.createElement('div');
+    astroContainer.classList.add('astro-container');
+    
+    const astroCard = document.createElement('div');
+    astroCard.classList.add('astro-card');
+    //Front side
+
+    const astroCardFront = document.createElement('div');
+    astroCardFront.classList.add('astro-card-front');
+
+    const sunriseText = document.createElement('span');
+    sunriseText.classList.add('astro-text');
+    const sunsetText = document.createElement('span');
+    sunsetText.classList.add('astro-text');
+
+   
+
+    sunriseText.textContent = astronomyData.astronomy.astro.sunrise;
+    sunsetText.textContent =astronomyData.astronomy.astro.sunset;
+
+    sunriseText.appendChild(sunriseIcon);
+    sunsetText.appendChild(sunsetIcon);
+
+    astroCardFront.appendChild(sunriseText);
+    astroCardFront.appendChild(sunsetText);
+   
+    //Back side
+
+    const astroCardBack = document.createElement('div');
+    astroCardBack.classList.add('astro-card-back');
+
+    const humidityText = document.createElement('span');
+    const windText = document.createElement('span');
+
+    humidityText.textContent = `${weatherData.current.humidity}\n%`;
+    humidityText.classList.add('astro-text');
+    windText.textContent  = `${weatherData.current.wind_kph}\nKm/h`;
+    windText.classList.add('astro-text');
+
+    humidityText.appendChild(humidtyIcon);
+    windText.appendChild(windIcon);
+
+    astroCardBack.appendChild(humidityText);
+    astroCardBack.appendChild(windText);
+
+    astroCard.appendChild(astroCardFront);
+    astroCard.appendChild(astroCardBack);
+
+    astroContainer.appendChild(astroCard);
+
+    container.appendChild(astroContainer)
+   
+}
 
 
  function updateForecastDOM(forecastData){
@@ -136,7 +205,7 @@ hours.forEach(hour => {
     });
     
 }
-export  {updateDOM,updateForecastDOM}
+export  {updateDOM,updateForecastDOM,updateAstronomyDom}
 
 //const hoursOfTheDay = day.hour
 //        hoursOfTheDay.forEach((hour) =>//{
