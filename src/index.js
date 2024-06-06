@@ -4,7 +4,8 @@ import './style.css';
 //let temp = document.createElement("p")
 
 const dialogConfirmBtn = document.querySelector('#dialogConfirmBtn')
-const locationValue = document.querySelector('#location')
+const handleError = document.querySelector('#handleError');
+const locationValue = document.querySelector('#location');
 
 
 
@@ -47,14 +48,41 @@ async function WeatherApi(weatherLocation){
 
 
 dialogConfirmBtn.addEventListener('click',async (e)=>{
+    handleError.textContent = '';
+
+    e.preventDefault();
     
-    e.preventDefault()
     const weatherLocation = locationValue.value
             
-    await WeatherApi(weatherLocation)
+    if(weatherLocation===''){
+        handleError.textContent ='Please enter a location';
+        
+    }
+    else{
+        await WeatherApi(weatherLocation)
+    }
     
      })
-     document.addEventListener('DOMContentLoaded', () => {
+
+     locationValue.addEventListener('keypress',async (e)=>{
+        handleError.textContent = '';
+
+        if(e.key ==='Enter'){
+
+            e.preventDefault();
+        const weatherLocation = locationValue.value
+            if(weatherLocation===''){
+                handleError.textContent ='Please enter a location';
+                
+            }
+            else{
+                await WeatherApi(weatherLocation)
+            }
+            
+    }
+    console.log(e.target);
+    })     
+ document.addEventListener('DOMContentLoaded', () => {
         WeatherApi('Algeria');
     });     
 

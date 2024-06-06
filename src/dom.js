@@ -13,7 +13,7 @@ function updateDOM(weatherData) {
    
    
 
-    const currentLocationCard = document.createElement('div');
+const currentLocationCard = document.createElement('div');
 const imgElementContainer = document.createElement('div');
 const locationElement = document.createElement('div');
 const locationTimeElement = document.createElement('div');
@@ -86,6 +86,7 @@ container.appendChild(currentTempCard);
         const dailyForecastImg = document.createElement('img');
         const dailyForecastText = document.createElement('span');
         const dailyForecastTemp = document.createElement('span');
+
         dailyForecast.classList.add('day-forecast-card');
         
         dailyForecastContainer.appendChild(dailyForecast);
@@ -102,8 +103,11 @@ container.appendChild(currentTempCard);
         
         //Hourly Forecast
 
-        const hours = day.hour;
+       // const hours = day.hour;
         
+       const hoursToShow = [6, 9, 12, 15, 18]; 
+       const hours = day.hour.filter(hour => hoursToShow.includes(new Date(hour.time).getHours()));
+
 hours.forEach(hour => {
     const hourlyForecastCard = document.createElement('div');
     hourlyForecastCard.classList.add('hourly-forecast-card');
@@ -120,9 +124,9 @@ hours.forEach(hour => {
     hourlyForecast.appendChild(timeTemp);
     hourlyForecast.appendChild(hourlyForecastImg);
     hourlyForecastCard.appendChild(hourlyForecast);
-    //dailyForecast.appendChild(hourlyForecastCard);
+    dailyForecast.appendChild(hourlyForecastCard);
 
-    hourlyForecastCard.addEventListener('click', () => {
+    dailyForecast.addEventListener('click', () => {
         hourlyForecastCard.classList.toggle('hourly-forecast-card-active');
     });
 });
