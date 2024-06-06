@@ -54,6 +54,9 @@ dialogConfirmBtn.addEventListener('click',async (e)=>{
     await WeatherApi(weatherLocation)
     
      })
+     document.addEventListener('DOMContentLoaded', () => {
+        WeatherApi('Algeria');
+    });     
 
 export default WeatherApi
 

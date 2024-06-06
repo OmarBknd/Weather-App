@@ -1,4 +1,4 @@
-
+body{}
 
 #dialogConfirmBtn{
     font-size:large;
@@ -6,25 +6,39 @@
 
 .icon-condition{
    display: grid;
+   text-align: center;
 }
 .temp-degree{
     font-size: 2rem;
 
 }
-.current-temp-card{
- display: flex;
- align-items: center;
+.current-day-forecast-card{
+    display: flex;
+    align-items: center;
     gap: 20px;
+    width: 350px;
+    height: 110px;
+    
+    border-radius: 5px;
+    padding: 5px 5px 5px 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+    
+    
 }
 
-.current-location-card{
+.location-text{
     display: flex;
     justify-content: center;
+   
 }
-.day-forecast-card{
+.day-forecast-container{
     display: flex;
     justify-content: space-between;
 }
+
 .day-forecast-list-card {
     display: none;
 
@@ -37,3 +51,142 @@
     gap: 10px;
 
 }
+
+.day-forecast-card {
+    display: grid;
+    justify-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    min-width: 180px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.day-forecast-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Text styling */
+.day-forecast-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.day-forecast-card p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+
+
+
+/**********************************/
+/* Container for the location information */
+.location-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.current-day-forecast-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.icon-condition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.temp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Today Forecast */
+.location-text {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.location-time {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.temp-degree {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.temp-feel-like {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    white-space: pre-line; 
+}
+
+.condition-text {
+    font-size: 1.2em;
+    color: #666;
+    margin-top: 10px;
+}
+
+/*Hourly update forecast*/
+
+
+#hourlyForecastContainer {
+    display: flex;
+    justify-content: center;
+    align-items: ;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.hourly-forecast-card-active{
+    display: grid;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.hourly-forecast-card img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.hourly-forecast-card div {
+    font-size: 12px;
+    color: #555;
+}
+
+
+
+
