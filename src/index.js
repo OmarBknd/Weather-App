@@ -1,6 +1,7 @@
 import {updateDOM,updateForecastDOM,updateAstronomyDom}  from "./dom";
 import './style.css';
 
+
 //let temp = document.createElement("p")
 
 const dialogConfirmBtn = document.querySelector('#dialogConfirmBtn')

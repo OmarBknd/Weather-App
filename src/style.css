@@ -1,5 +1,8 @@
-body{}
 
+.form{
+    padding: 10px;
+}   
+/*********/
 .group {
     display: flex;
     line-height: 28px;
@@ -17,10 +20,11 @@ body{}
     border: 2px solid transparent;
     border-radius: 8px;
     outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
+    background-color: var(--cards-background);
+    color: var(--cards-text-color);
     transition: .3s ease;
    }
+  
    
    .input::placeholder {
     color: #9e9ea7;
@@ -40,7 +44,6 @@ body{}
     width: 1rem;
     height: 1rem;
    }
-   
 #dialogConfirmBtn:hover{
     fill: aquamarine;
     width: 22px;
