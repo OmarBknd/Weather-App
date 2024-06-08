@@ -9,6 +9,23 @@ const container = document.querySelector('#container')
 
 
 //let Celsius = true
+
+//function degreeConvert(weatherData){
+//       const degreeConverter = document.createElement('button') 
+//    degreeConverter.textContent ='convert'
+//
+//  
+//    degreeConverter.addEventListener('click',()=>{
+//        if(Celsius){
+//        tempElement.textContent = `${weatherData.current.temp_c}°C`;
+//         }
+//         else{
+//            tempElement.textContent = `${weatherData.current.temp_f}°F`;
+//         }
+//         Celsius = !Celsius
+//    })
+//    return degreeConvert
+//}
 function updateDOM(weatherData) {
    
     container.innerHTML = '';
@@ -58,20 +75,11 @@ tempContainer.appendChild(tempElement);
 tempContainer.appendChild(tempFeelLikeElement);
 currentTempCard.appendChild(tempContainer);
 
+
+
 container.appendChild(currentTempCard);
 
-   // const degreeConverter = document.createElement('button') 
-   // degreeConverter.textContent ='convert'
-   // degreeConverter.addEventListener('click',()=>{
-   //     if(Celsius){
-   //     tempElement.textContent = `${weatherData.current.temp_c}°C`;
-   //      }
-   //      else{
-   //         tempElement.textContent = `${weatherData.current.temp_f}°F`;
-   //      }
-   //      Celsius = !Celsius
-   // })
-   // currentTempCard.appendChild(degreeConverter)
+ 
   
 
     
