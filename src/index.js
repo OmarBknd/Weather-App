@@ -14,8 +14,8 @@ const locationValue = document.querySelector('#location');
 async function WeatherApi(weatherLocation){
 
     try{
-        const locationapiUrl = 'http://api.weatherapi.com/v1/search.json?key=e6de3e17d80243a2916234914243105&q=';
-        const weatherApiUrl = 'http://api.weatherapi.com/v1/current.json?key=e6de3e17d80243a2916234914243105&q=';
+        const locationapiUrl = 'https://api.weatherapi.com/v1/search.json?key=e6de3e17d80243a2916234914243105&q=';
+        const weatherApiUrl = 'https://api.weatherapi.com/v1/current.json?key=e6de3e17d80243a2916234914243105&q=';
         const forecastApiUrl = 'https://api.weatherapi.com/v1/forecast.json?key=e6de3e17d80243a2916234914243105&q=';
         const astronomyApiUrl = 'https://api.weatherapi.com/v1/astronomy.json?key=e6de3e17d80243a2916234914243105&q=';
         let forecastDays = '&days=3';
